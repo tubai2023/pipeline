@@ -13,7 +13,7 @@ variables:
 resources:
   repositories:
     - repository: registry_image
-      name: registry_image
+      name: tubai2023/registry_image
       endpoint: tubai2023
       type: github
       ref: main
