@@ -16,7 +16,6 @@ resources:
       name: tubai2023/registry_image
       endpoint: tubai2023
       type: github
-      ref: main
 
 stages:
 
