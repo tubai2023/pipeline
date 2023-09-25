@@ -1,0 +1,41 @@
+trigger:
+- main
+
+variables: 
+  serviceConn: $(serviceConnection)
+  serviceConnAcr: $(serviceConnectionAcrinput)     # Azure Container (Docker) Registry service connection
+  repository: $(RepositoryName)                         # Repository in ACR that holds the container images
+  imgtag: $(imageTag)                       # Container image tag value
+  acr: $(AcrName) 
+  image_name: '$(acr).azurecr.io/$(repository)'
+
+
+resources:
+  repositories:
+    - repository: registry_image
+      name: registry_image
+      endpoint: tubai2023
+      type: github
+      ref: main
+
+stages:
+
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+           
+    steps:
+      - checkout: registry_image
+
+      - template: pipelines/az-pipelines-agent.yml@registry_image
+        parameters:
+          serviceConnectionAcr: $(serviceConnAcr)     
+          serviceConnection: $(serviceConn)
+          repository: $(repository)                          
+          imagetag: $(imgtag)
+          acr: $(acr) 
+          image_name: $(image_name)
