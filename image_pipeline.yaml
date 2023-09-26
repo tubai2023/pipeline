@@ -29,13 +29,12 @@ stages:
            
     steps:
       - checkout: registry_image
-      - script: echo Hello $serviceConn
 
-      #- template: pipelines/az-pipelines-agent.yml@registry_image
-      #  parameters:
-      #    serviceConnectionAcr: 'dockerpush'     
-      #    serviceConnection: $(serviceConn)
-      #    repository: $(repository)                          
-      #    imagetag: $(imgtag)
-      #    acr: $(acr) 
-      #    image_name: $(image_name)
+      - template: pipelines/az-pipelines-agent.yml@registry_image
+        parameters:
+          serviceConnectionAcr: 'dockerpush'     
+          serviceConnection: 'MyScon'
+          repository: 'ghostImage'                          
+          imagetag: 'latest'
+          acr: 'ghostprivate' 
+          image_name: 'ghostprivate.azurecr.io/ghostImage'
