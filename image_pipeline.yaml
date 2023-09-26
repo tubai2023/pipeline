@@ -36,5 +36,5 @@ stages:
           serviceConnection: 'MyScon'
           repository: 'ghostImageTest'                          
           imagetag: 'latest'
-          acr: 'ghostprivate' 
-          image_name: 'ghostprivate.azurecr.io/ghostImage'
+          acr: 'ghostprivatetest' 
+          image_name: 'ghostprivatetest.azurecr.io/ghostImageTest'
