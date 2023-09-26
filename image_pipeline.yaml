@@ -34,7 +34,7 @@ stages:
         parameters:
           serviceConnectionAcr: 'dockerpush'     
           serviceConnection: 'MyScon'
-          repository: 'ghostImage'                          
+          repository: 'ghostImageTest'                          
           imagetag: 'latest'
           acr: 'ghostprivate' 
           image_name: 'ghostprivate.azurecr.io/ghostImage'
