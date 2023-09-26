@@ -25,12 +25,12 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'ubuntu-20.04'
            
     steps:
       - checkout: registry_image
 
-      - template: pipelines/testpipeline.yml@registry_image
+      - template: pipelines/az-pipelines-agent.yml@registry_image
         parameters:
           serviceConnectionAcr: 'dockerpush'     
           serviceConnection: 'MyScon'
