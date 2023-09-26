@@ -32,7 +32,7 @@ stages:
 
       - template: pipelines/az-pipelines-agent.yml@registry_image
         parameters:
-          serviceConnectionAcr: $(serviceConnAcr)     
+          serviceConnectionAcr: 'dockerpush'     
           serviceConnection: $(serviceConn)
           repository: $(repository)                          
           imagetag: $(imgtag)
